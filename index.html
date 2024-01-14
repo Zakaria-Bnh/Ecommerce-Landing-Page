@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- style -->
+    <link rel="stylesheet" href="/styles/style.css" />
+    <!-- javacsript -->
+    <script src="/app/index.js" defer></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>E-commerce product page</title>
+  </head>
+  <body>
+    <header>
+      <div class="container main-header flex-container">
+        <div class="flex-container menu-logo">
+          <div  class="desktop-hidden hamburger-menu">
+            <img class="open-menu" src="images/icon-menu.svg" alt="open menu" />
+            <img class="close-menu hidden" src="images/icon-close.svg" alt="close menu">
+          </div>
+          <div class="logo">
+            <a href="/">
+              <img src="images/logo.svg" alt="logo" />
+            </a>
+          </div>
+        </div>
+        <nav class="primary-navbar">
+          <ul class="primary-nav-list flex-container">
+            <li class="active"><a href="#" >Collection</a></li>
+            <li><a href="#">Men </a></li>
+            <li><a href="#">Women </a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact </a></li>
+          </ul>
+        </nav>
+        <div class="cart-avatar flex-container">
+          <div class="cart">
+            <span class="cart-purchases">0</span>
+            <img src="images/icon-cart.svg" alt="cart" />
+          </div>
+          <div class="user-avatar">
+            <img src="images/image-avatar.png" alt="avatar" />
+          </div>
+        </div>
+      </div>
+      <div class="overlay hidden"></div>
+    </header>
+  </body>
+</html>
