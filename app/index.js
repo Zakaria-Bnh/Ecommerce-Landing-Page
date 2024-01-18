@@ -3,7 +3,9 @@ const primaryNavbar = document.querySelector('.primary-navbar')
 const closeIcon = document.querySelector('.close-menu')
 const openIcon = document.querySelector('.open-menu')
 const overlay = document.querySelector('.overlay')
-console.log(primaryNavbar);
+const cartIcon = document.querySelector('.cart-icon')
+const cartCard = document.querySelector('.cart-card')
+console.log(cartIcon);
 
 
 hamburgerMenu.addEventListener('click', e => {
@@ -12,4 +14,8 @@ hamburgerMenu.addEventListener('click', e => {
     openIcon.classList.toggle('hidden')
     closeIcon.classList.toggle('hidden')
     overlay.classList.toggle('hidden')
+})
+
+cartIcon.addEventListener('click', e => {
+    cartCard.classList.toggle('show')
 })

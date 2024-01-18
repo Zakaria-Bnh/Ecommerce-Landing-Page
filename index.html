@@ -46,7 +46,7 @@
         <div class="cart-avatar flex-container">
           <div class="cart">
             <span class="cart-purchases">0</span>
-            <img src="images/icon-cart.svg" alt="cart" />
+            <img class="cart-icon" src="images/icon-cart.svg" alt="cart" />
             <div class="cart-card">
               <h4 class="cart-header">Cart</h4>
               <div class="cart-item flex-container">
@@ -58,7 +58,11 @@
                 <p class="cart-item-title">
                   fall limited edition sneakers 125 * 3 <span>$375.00</span>
                 </p>
-                <img src="images/icon-delete.svg" alt="delete icon" />
+                <img
+                  class="cart-item-delete"
+                  src="images/icon-delete.svg"
+                  alt="delete icon"
+                />
               </div>
               <button class="checkout-btn primary-btn">Checkout</button>
             </div>
@@ -72,5 +76,42 @@
       <!-- black overlay -->
       <div class="overlay hidden"></div>
     </header>
+
+    <main>
+      <section class="container">
+        <div class="main-content">
+          <div class="product-images flex-column">
+            <img class="main-product-image" src="images/image-product-1.jpg" alt="main-product">
+            <ul class="gallery-container flex-container">
+              <li><img src="images/image-product-1.jpg" alt="product-image"></li>
+              <li><img src="images/image-product-2.jpg" alt="product-image"></li>
+              <li><img src="images/image-product-3.jpg" alt="product-image"></li>
+              <li><img src="images/image-product-4.jpg" alt="product-image"></li>
+            </ul>
+          </div>
+          <div class="product-text">
+            <h3 class="product-subheader">SNEAKERS COMPANY</h3>
+            <H1 class="product-header">Fall Limited Edition Sneakers</H1>
+            <p class="product-description">These low-profile sneakers are your perfect casual wear companion,
+              featuting a durable rubber outer sole, they'll withstand everything the weather
+              can offer
+            </p>
+            <div class="product-pricing">
+              <h2 class="product-price">$125.00</h2>
+              <span class="product-cupon">50%</span>
+            </div>
+            <span class="product-grey-price">$250.00</span>
+            <div class="product-purchase flex-container">
+              <div class="quantity-btn-container flex-container">
+                <button class="decrease-quantity">-</button>
+                <span class="quantity">0</span>
+                <button class="increase-quantity">+</button>
+              </div>
+              <button class="Add-to-cart flex-center"><img src="images/icon-cart.svg" alt="cart-icon">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </d>
+    </main>
   </body>
 </html>
