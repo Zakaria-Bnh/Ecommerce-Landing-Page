@@ -324,20 +324,54 @@ main {
     margin-block: clamp(3rem, 6vw, 5rem);
     @media (max-width: 768px) {
       flex-direction: column;
+      margin-top: 0;
     }
     .product-images {
       flex: 1;
       gap: 2rem;
       max-width: 400px;
-      .main-product-image {
-        border-radius: var(--primary-border-radius);
+
+      .main-product {
+        position: relative;
+        .main-product-image {
+          border-radius: var(--primary-border-radius);
+          @media (max-width: 768px) {
+            min-width: 100vw;
+          }
+        }
+        .previous-image, .next-image {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: white;
+          border-radius: 50%;
+          padding: .5rem;
+          cursor: pointer;
+        }
+        .previous-image {
+          left: 1.5rem;
+        }
+        .next-image {
+          right: 1.5rem;
+        }
       }
       .gallery-container {
         gap: 2rem;
         max-width: 100%;
+        @media (max-width: 768px) {
+          display: none;
+        }
         li {
           border-radius: var(--primary-border-radius);
           overflow: hidden;
+          cursor: pointer;
+          border: 2px solid transparent;
+          &:hover {
+            border: 2px solid var(--primary-dark-orange);
+          }
+          &.gallery-active {
+            opacity: 50%;
+          }
         }
       }
     }
@@ -382,17 +416,15 @@ main {
       .product-purchase {
         gap: .5rem;
         align-items: stretch;
+        @media (max-width: 768px) {
+          flex-direction: column;
+        }
         .quantity-btn-container {
           gap: 2rem;
-          padding: .5rem;
+          padding: .75rem;
           border-radius: var(--primary-border-radius);
           background-color: var(--primary-light-grey);
           font-weight: bold;
-          button {
-            background-color: transparent;
-            color: var(--primary-dark-orange);
-            font-size: 1.5rem;
-          }
         }
         .Add-to-cart {
           flex: 1;
