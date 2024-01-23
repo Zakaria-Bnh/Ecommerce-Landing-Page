@@ -134,9 +134,15 @@ h6 {
   font-weight: bold;
   background-color: var(--primary-dark-orange);
   color: white;
-  &:hover {
+  border-radius: var(--primary-border-radius);
+  &:hover,
+  &:focus {
     background-color: var(--primary-orange);
   }
+}
+.item-added {
+  pointer-events: none;
+  opacity: .5;
 }
 
 /* general styling .................*/
@@ -369,7 +375,7 @@ main {
           &:hover {
             border: 2px solid var(--primary-dark-orange);
           }
-          &.gallery-active {
+          & img.gallery-active {
             opacity: 50%;
           }
         }
@@ -425,14 +431,15 @@ main {
           border-radius: var(--primary-border-radius);
           background-color: var(--primary-light-grey);
           font-weight: bold;
+          .plus-btn,
+           .minus-btn {
+            cursor: pointer;
+          }
         }
-        .Add-to-cart {
+        .add-to-cart {
           flex: 1;
-          gap: .5rem;
-          font-weight: bold;
-          padding: .5rem;
-          background-color: var(--primary-dark-orange);
-          border-radius: var(--primary-border-radius);
+          gap: .5rem;     
+         
         }
       }
     }
