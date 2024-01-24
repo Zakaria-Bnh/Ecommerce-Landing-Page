@@ -145,6 +145,7 @@ h6 {
   opacity: .5;
 }
 
+
 /* general styling .................*/
 
 header {
@@ -431,6 +432,9 @@ main {
           border-radius: var(--primary-border-radius);
           background-color: var(--primary-light-grey);
           font-weight: bold;
+          .quantity {
+            min-width: 1rem;
+          }
           .plus-btn,
            .minus-btn {
             cursor: pointer;
