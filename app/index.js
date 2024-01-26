@@ -74,7 +74,8 @@ increaseAmount.addEventListener("click", increaseQuantity);
 decreaseAmount.addEventListener("click", decreaseQuantity);
 addToCart.addEventListener("click", handleAddToCartClick);
 deleteFromCart.addEventListener("click", handleDeleteFromCart);
-// Image sourceset array
+
+// Image sourceSet Array
 const imagesSourceset = [
   "images/image-product-1.jpg",
   "images/image-product-2.jpg",
@@ -83,15 +84,34 @@ const imagesSourceset = [
 ];
 
 // Event listeners for gallery images
-let imageIndex;
 
 galleryImages.forEach((image) => {
   image.addEventListener("click", () => {
     mainProductImage.src = image.src;
   });
 });
-console.log(mainProductImage.src);
-nextImage.addEventListener("click", () => {});
+
+
+
+nextImage.addEventListener("click", (e) => {
+  console.log('next clicked');
+
+
+  let mainProductImgSrc = mainProductImage.src
+  mainProductImgSrc = mainProductImgSrc.substring(mainProductImgSrc.indexOf('images'))
+  console.log('after assigning the mainProductImgSrc', mainProductImgSrc);
+  mainProductImage.src = imagesSourceset[(imagesSourceset.indexOf(mainProductImgSrc) + 1) % imagesSourceset.length]
+  mainImgSrc = mainProductImage.src
+});
+
+previousImage.addEventListener("click", (e) => {
+  let mainProductImgSrc = mainProductImage.src
+  console.log('previous clicked');
+  mainProductImgSrc = mainProductImgSrc.substring(mainProductImgSrc.indexOf('images'))
+  mainProductImage.src = imagesSourceset[(imagesSourceset.indexOf(mainProductImgSrc) - 1) % imagesSourceset.length]
+  mainImgSrc = mainProductImage.src
+});
+
 
 // Event listener for mobile/desktop menu
 hamburgerMenu.addEventListener("click", () => {

@@ -352,7 +352,7 @@ main {
           transform: translateY(-50%);
           background-color: white;
           border-radius: 50%;
-          padding: .5rem;
+          padding: .8rem;
           cursor: pointer;
         }
         .previous-image {
@@ -439,11 +439,10 @@ main {
            .minus-btn {
             cursor: pointer;
           }
-        }
+        }     
         .add-to-cart {
           flex: 1;
-          gap: .5rem;     
-         
+          gap: .5rem;        
         }
       }
     }
