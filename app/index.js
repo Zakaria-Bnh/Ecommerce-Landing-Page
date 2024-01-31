@@ -91,27 +91,35 @@ galleryImages.forEach((image) => {
   });
 });
 
+let mainProductImgSrc = mainProductImage.src
+mainProductImgSrc =  mainProductImgSrc.substring(mainProductImgSrc.indexOf('images'))
+let MainProductIndex = imagesSourceset.indexOf(mainProductImgSrc);
 
+console.log(mainProductImgSrc, 'that was the src', MainProductIndex, 'that was the index');
 
+// next image 
 nextImage.addEventListener("click", (e) => {
-  console.log('next clicked');
-
-
-  let mainProductImgSrc = mainProductImage.src
-  mainProductImgSrc = mainProductImgSrc.substring(mainProductImgSrc.indexOf('images'))
-  console.log('after assigning the mainProductImgSrc', mainProductImgSrc);
-  mainProductImage.src = imagesSourceset[(imagesSourceset.indexOf(mainProductImgSrc) + 1) % imagesSourceset.length]
-  mainImgSrc = mainProductImage.src
+  if(MainProductIndex === imagesSourceset.length - 1) {
+    MainProductIndex = 0 
+    mainProductImage.src = imagesSourceset[MainProductIndex]
+  } else {
+    MainProductIndex++
+    mainProductImage.src = imagesSourceset[MainProductIndex]
+  }
 });
 
+console.log(mainProductImgSrc, 'that was the src', MainProductIndex, 'that was the index');
+
+// previous image
 previousImage.addEventListener("click", (e) => {
-  let mainProductImgSrc = mainProductImage.src
-  console.log('previous clicked');
-  mainProductImgSrc = mainProductImgSrc.substring(mainProductImgSrc.indexOf('images'))
-  mainProductImage.src = imagesSourceset[(imagesSourceset.indexOf(mainProductImgSrc) - 1) % imagesSourceset.length]
-  mainImgSrc = mainProductImage.src
+  if(MainProductIndex === 0) {
+    MainProductIndex = imagesSourceset.length - 1
+    mainProductImage.src = imagesSourceset[MainProductIndex]
+  } else {
+    MainProductIndex--
+    mainProductImage.src = imagesSourceset[MainProductIndex]
+  }
 });
-
 
 // Event listener for mobile/desktop menu
 hamburgerMenu.addEventListener("click", () => {
