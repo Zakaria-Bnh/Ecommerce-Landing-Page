@@ -163,9 +163,15 @@ header {
 
       .hamburger-menu {
         cursor: pointer;
-        z-index: 9000;
         img {
+          position: relative;
           min-width: 100%;
+        }
+        .close-menu {
+          z-index: 4000;
+        }
+        .open-menu {
+          z-index: 1000;
         }
       }
     }
@@ -269,13 +275,13 @@ header {
           opacity: 0;
           visibility: hidden;
           transition: opacity 0.2s ease-in-out, visibility 0.3s ease-in-out;
+          z-index: 99999;
           &.cart-show {
             opacity: 1;
             visibility: visible;
           }
           @media (max-width: 768px) {
             position: fixed;
-            z-index: 99999;
             width: 90%;
             top: 15vh;
             left: 0;
@@ -321,6 +327,9 @@ header {
     position: absolute;
     inset: 0;
     z-index: 2000;
+    @media (min-width: 769px) {
+      display: none;
+    }
   }
 }
 
