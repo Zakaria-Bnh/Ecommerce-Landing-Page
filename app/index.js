@@ -13,7 +13,6 @@ const galleryImages = [
 const cartItem = document.querySelector(".cart-item");
 const previousImage = document.querySelector(".previous-image");
 const nextImage = document.querySelector(".next-image");
-
 // Counter for purchases
 const cartPurchases = document.querySelector(".cart-purchases");
 const quantityCounter = document.querySelectorAll(".quantity");
@@ -24,7 +23,6 @@ const increaseAmount = document.querySelector(".plus-btn");
 const decreaseAmount = document.querySelector(".minus-btn");
 const addToCart = document.querySelector(".add-to-cart");
 const deleteFromCart = document.querySelector(".cart-item-delete");
-console.log(deleteFromCart);
 let quantity = 0;
 
 // Functions for quantity counter
@@ -82,44 +80,40 @@ const imagesSourceset = [
   "images/image-product-3.jpg",
   "images/image-product-4.jpg",
 ];
+// evernt listener for overlay
+overlay.addEventListener("click", () => {
+  primaryNavbar.classList.remove("sidebar-active");
+  closeIcon.classList.add("hidden");
+  openIcon.classList.remove("hidden");
+  cartCard.classList.remove("cart-show");
+  overlay.classList.add("hidden");
+});
 
 // Event listeners for gallery images
-
 galleryImages.forEach((image) => {
-  image.addEventListener("click", () => {
+  image.addEventListener("click", (e) => {
+    galleryImages.forEach((img) => img.classList.remove("gallery-active"));
+
     mainProductImage.src = image.src;
+    e.target.classList.add("gallery-active");
   });
 });
 
-let mainProductImgSrc = mainProductImage.src
-mainProductImgSrc =  mainProductImgSrc.substring(mainProductImgSrc.indexOf('images'))
+let mainProductImgSrc = mainProductImage.src;
+mainProductImgSrc = mainProductImgSrc.substring(
+  mainProductImgSrc.indexOf("images")
+);
 let MainProductIndex = imagesSourceset.indexOf(mainProductImgSrc);
 
-console.log(mainProductImgSrc, 'that was the src', MainProductIndex, 'that was the index');
+function navigateImage(direction) {
+  MainProductIndex =
+    (MainProductIndex + direction + imagesSourceset.length) %
+    imagesSourceset.length;
+  mainProductImage.src = imagesSourceset[MainProductIndex];
+}
 
-// next image 
-nextImage.addEventListener("click", (e) => {
-  if(MainProductIndex === imagesSourceset.length - 1) {
-    MainProductIndex = 0 
-    mainProductImage.src = imagesSourceset[MainProductIndex]
-  } else {
-    MainProductIndex++
-    mainProductImage.src = imagesSourceset[MainProductIndex]
-  }
-});
-
-console.log(mainProductImgSrc, 'that was the src', MainProductIndex, 'that was the index');
-
-// previous image
-previousImage.addEventListener("click", (e) => {
-  if(MainProductIndex === 0) {
-    MainProductIndex = imagesSourceset.length - 1
-    mainProductImage.src = imagesSourceset[MainProductIndex]
-  } else {
-    MainProductIndex--
-    mainProductImage.src = imagesSourceset[MainProductIndex]
-  }
-});
+nextImage.addEventListener("click", () => navigateImage(1));
+previousImage.addEventListener("click", () => navigateImage(-1));
 
 // Event listener for mobile/desktop menu
 hamburgerMenu.addEventListener("click", () => {
@@ -131,5 +125,6 @@ hamburgerMenu.addEventListener("click", () => {
 
 // Event listener for cart functionality
 cartIcon.addEventListener("click", () => {
-  cartCard.classList.toggle("show");
+  cartCard.classList.toggle("cart-show");
+  overlay.classList.remove("hidden");
 });
